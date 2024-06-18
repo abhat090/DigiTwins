@@ -9,11 +9,11 @@ parser_options = {
 }
 
 
-def test():
+def run_parser():
     p = DataParser(None, parser_options)
     p.gen_script()
     return
 
 
 if __name__ == '__main__':
-    test()
+    run_parser()

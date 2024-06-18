@@ -1,0 +1,48 @@
+Unit Number,Unit Type,Unit Name,Unit Identifier,Q
+1,Source,source,Source,
+2,Merge,E3_return,E3 Return,
+3,Merge,E2_return,E2 Return,
+4,Merge,E1_return,E1 Return,
+5,Splitter,Supplemental_supply,Supplemental Converter Supply,
+6,SimpleHeatExchanger,Suppl_Cond_Cooler,Supplemental Condensate Cooler,80000
+7,Splitter,Cond_Splitter,Supplemental Condensate Cooler Splitter,
+8,Merge,Cond_Merger,Supplemental Condensate Return Merger,
+9,SimpleHeatExchanger,Supplemental_Converter,Supplemental Steam Converter,1020000
+10,Merge,Supplemental_return,Supplemental Converter Return,
+11,Splitter,Admin_total_supply,Admin Building Supply,
+12,SimpleHeatExchanger,Admin_HEX,Admin Building HEX,-150000
+13,Merge,Admin_total_return,Admin Building Return,
+14,Splitter,Control_Center_supply,Control Center supply,
+15,SimpleHeatExchanger,Control_Center_HEX,Control Center HEX,-130000
+16,Merge,Control_Center_return,Control Center return,
+17,Splitter,Digester_5_6_supply,Digester 5 6 supply,
+18,SimpleHeatExchanger,Digester_5_6_HEX,Digester 5 6 HEX,-160000
+19,Merge,Digester_5_6_return,Digester 5 6 return,
+20,Splitter,Boiler_A_supply,Boiler A supply,
+21,SimpleHeatExchanger,Boiler_A_HEX,Boiler A HEX,-250000
+22,Merge,Boiler_A_return,Boiler A return,
+23,Splitter,Boiler_B_supply,Boiler B supply,
+24,SimpleHeatExchanger,Boiler_B_HEX,Boiler B HEX,-250000
+25,Merge,Boiler_B_return,Boiler B return,
+26,Splitter,Digester_7_to_10_supply,Digester 7 to 10 supply,
+27,SimpleHeatExchanger,Digester_7_to_10_HEX,Digester 7 to 10 HEX,-140000
+28,Merge,Digester_7_to_10_return,Digester 7 to 10 return,
+29,Splitter,Digester_15_16_supply,Digester 15 16 supply,
+30,SimpleHeatExchanger,Digester_15_16_HEX,Digester 15_ 16 HEX,-120000
+31,Splitter,Digester_11_to_14_supply,Digester 11 to 14 supply,
+32,SimpleHeatExchanger,Digester_11_to_14_HEX,Digester 11 to 14 HEX,-150000
+33,Merge,Digester_11_to_14_return,Digester 11 to 14 return,
+34,Merge,Digester_15_16_return,Digester 15 16 return,
+35,Splitter,Waste_HEX1_supply,Waste HEX1 supply,
+36,SimpleHeatExchanger,Waste_HEX1,Waste HEX1,-175000
+37,Merge,Waste_HEX2_return,Waste HEX2 return,
+38,SimpleHeatExchanger,Waste_HEX2,Waste HEX2,-175000
+39,Splitter,Waste_HEX2_supply,Waste HEX2 supply,
+40,Merge,Waste_HEX1_return,Waste HEX1 return,
+41,Splitter,E1_supply,E1 supply,
+42,SimpleHeatExchanger,JW_HEX_E1,JW HEX E1,200000
+43,Splitter,E2_supply,E2 supply,
+44,SimpleHeatExchanger,JW_HEX_E2,JW HEX E2,200000
+45,Splitter,E3_supply,E3 supply,
+46,SimpleHeatExchanger,JW_HEX_E3,JW HEX E3,200000
+47,Sink,sink,Sink,

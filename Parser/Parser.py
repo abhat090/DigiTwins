@@ -58,7 +58,7 @@ class DataParser:
             for node in self.u_net.get_nodes().values():
                 script.write(f"{node.name} = components.{node.typeName}('{node.id}')\n")
 
-            script.write(f"# End Nodes \n")
+            script.write(f"# End Nodes \n\n")
             script.write(f"# Streams: \n")
 
             # Generate Connections
@@ -66,7 +66,22 @@ class DataParser:
                 script.write(f"c{conn.label} = connections.{conn.type}({conn.output.name}, '{conn.out_port}', "
                              f"{conn.input.name}, '{conn.in_port}', label='{conn.label}')\n")
 
-            script.write(f"# End Streams \n")
+            script.write(f"# End Streams \n\n")
+            script.write(f"# Plant Add Connections \n")
+
+            # Generate Plant Connections
+            script.write(f"self.plant.add_conns(")
+
+            first_word = True
+            for conn in self.u_net.get_connections().values():
+                if first_word:
+                    script.write(f"c{conn.label}")
+                    first_word = False
+                else:
+                    script.write(f", c{conn.label}")
+
+            script.write(f")\n")
+            script.write(f"# End Plant Connections \n\n")
             script.write(f"# Node Boundary Conditions")
 
             # Generate Boundary Conditions
@@ -75,7 +90,7 @@ class DataParser:
                 if node.Q:
                     script.write(f"{node.name}.set_attr(Q=meta['{node.name}.Q'])\n")
 
-            script.write(f"# Connection Boundary Conditions\n")
+            script.write(f"\n# Connection Boundary Conditions\n")
 
             # Connection Boundaries
             for conn in self.u_net.get_connections().values():
@@ -88,7 +103,7 @@ class DataParser:
                 if conn.pressure:
                     script.write(f"c{conn.label}.set_attr(p=meta['c{conn.label}.pressure'])\n")
 
-            script.write(f"# Node terms for metadata dictionary\n")
+            script.write(f"\n# Node terms for metadata dictionary\n")
             script.write(f"# Unit Nodes\n")
 
             # Node terms
@@ -96,7 +111,7 @@ class DataParser:
                 if node.Q:
                     script.write(f"'{node.name}.Q': {node.Q},\n")
 
-            script.write(f"# Connections\n")
+            script.write(f"\n# Connections\n")
 
             # Connection terms
             for conn in self.u_net.get_connections().values():

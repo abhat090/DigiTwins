@@ -47,6 +47,7 @@ E3_supply = components.Splitter('E3 supply')
 JW_HEX_E3 = components.SimpleHeatExchanger('JW HEX E3')
 sink = components.Sink('Sink')
 # End Nodes 
+
 # Streams: 
 c1 = connections.Connection(source, 'out1', E3_return, 'in1', label='1')
 c1a = connections.Connection(JW_HEX_E3, 'out1', E3_return, 'in2', label='1a')
@@ -110,6 +111,11 @@ c30 = connections.Connection(E2_supply, 'out1', E3_supply, 'in1', label='30')
 c30a = connections.Connection(E3_supply, 'out2', JW_HEX_E3, 'in1', label='30a')
 c31 = connections.Connection(E3_supply, 'out1', sink, 'in1', label='31')
 # End Streams 
+
+# Plant Add Connections 
+self.plant.add_conns(c1, c1a, c2a, c2, c3, c3a, c4, c6, c6a, c6b, c6c, c6d, c6e, c6f, c7, c7a, c8, c8a, c9, c9a, c10, c10a, c11, c11a, c12, c12a, c13, c13a, c14, c14a, c15, c15a, c16, c16a, c17, c17a, c18, c18a, c19, c19a, c20, c20a, c21, c21a, c22, c23, c24, c24a, c25, c26, c27, c27a, c26a, c25a, c28, c28a, c29, c29a, c30, c30a, c31)
+# End Plant Connections 
+
 # Node Boundary ConditionsSuppl_Cond_Cooler.set_attr(Q=meta['Suppl_Cond_Cooler.Q'])
 Supplemental_Converter.set_attr(Q=meta['Supplemental_Converter.Q'])
 Admin_HEX.set_attr(Q=meta['Admin_HEX.Q'])
@@ -125,6 +131,7 @@ Waste_HEX2.set_attr(Q=meta['Waste_HEX2.Q'])
 JW_HEX_E1.set_attr(Q=meta['JW_HEX_E1.Q'])
 JW_HEX_E2.set_attr(Q=meta['JW_HEX_E2.Q'])
 JW_HEX_E3.set_attr(Q=meta['JW_HEX_E3.Q'])
+
 # Connection Boundary Conditions
 c1.set_attr(fluid={meta['working_fluid']: 1})
 c1.set_attr(m=meta['c1.mass_flow_rate'])
@@ -145,6 +152,7 @@ c19a.set_attr(m=meta['c19a.mass_flow_rate'])
 c20a.set_attr(m=meta['c20a.mass_flow_rate'])
 c24a.set_attr(m=meta['c24a.mass_flow_rate'])
 c26a.set_attr(m=meta['c26a.mass_flow_rate'])
+
 # Node terms for metadata dictionary
 # Unit Nodes
 'Suppl_Cond_Cooler.Q': 80000.0,
@@ -162,6 +170,7 @@ c26a.set_attr(m=meta['c26a.mass_flow_rate'])
 'JW_HEX_E1.Q': 200000.0,
 'JW_HEX_E2.Q': 200000.0,
 'JW_HEX_E3.Q': 200000.0,
+
 # Connections
 'working_fluid': 'water',
 'c1.mass_flow_rate': 50.0,
